@@ -73,6 +73,28 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the articleId param
     app.param('articleId', articles.article);
 
+    //Contacts Routes
+    var contacts = require('../app/controllers/contacts');
+    app.get('/contacts', contacts.all);
+    app.post('/contacts', auth.requiresLogin, contacts.create);
+    app.get('/contacts/:contactId', contacts.show);
+    app.put('/contacts/:contactId', auth.requiresLogin, auth.contact.hasAuthorization, contacts.update);
+    app.del('/contacts/:contactId', auth.requiresLogin, auth.contact.hasAuthorization, contacts.destroy);
+
+    //Finish with setting up the articleId param
+    app.param('contactId', contacts.contact);
+
+    //Calls Routes
+    var calls = require('../app/controllers/calls');
+    app.get('/calls', calls.all);
+    app.post('/calls', auth.requiresLogin, calls.create);
+    app.get('/calls/:callId', calls.show);
+    app.put('/calls/:callId', auth.requiresLogin, auth.call.hasAuthorization, calls.update);
+    app.del('/calls/:callId', auth.requiresLogin, auth.call.hasAuthorization, calls.destroy);
+
+    //Finish with setting up the articleId param
+    app.param('callId', calls.call);
+
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);

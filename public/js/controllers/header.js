@@ -2,10 +2,16 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
     $scope.global = Global;
 
     $scope.menu = [{
-        "title": "Articles",
-        "link": "articles"
+        "title": "Contacts",
+        "link": "contacts"
     }, {
-        "title": "Create New Article",
-        "link": "articles/create"
+        "title": "Enter Contact",
+        "link": "contacts/create"
+    }, {
+        "title": "Calls",
+        "link": "calls"
+    }, {
+        "title": "Enter New Call",
+        "link": "calls/create"
     }];
 }]);

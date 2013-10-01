@@ -1,7 +1,7 @@
 {
-    "db": "mongodb://localhost/mean-dev",
+    "db": "mongodb://localhost/logger-dev",
     "app": {
-        "name": "MEAN - A Modern Stack - Development"
+        "name": "Logger - Ham Radio Log - Development"
     },
     "facebook": {
         "clientID": "APP_ID",

@@ -31,3 +31,27 @@ exports.article = {
         next();
     }
 };
+
+/**
+ * Contact authorizations routing middleware
+ */
+exports.contact = {
+    hasAuthorization: function(req, res, next) {
+        if (req.contact.user.id != req.user.id) {
+            // return res.send(401, 'User is not authorized');
+        }
+        next();
+    }
+};
+
+/**
+ * Call authorizations routing middleware
+ */
+exports.call = {
+    hasAuthorization: function(req, res, next) {
+        if (req.call.user.id != req.user.id) {
+            // return res.send(401, 'User is not authorized');
+        }
+        next();
+    }
+};
