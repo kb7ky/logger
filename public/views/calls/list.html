@@ -1,0 +1,11 @@
+<section data-ng-controller="CallsController" data-ng-init="find()">
+	<ul class="callss unstyled">
+		<li data-ng-repeat="call in calls">
+			<span>{{call.created | date:'MM/dd/yyyy H:mm Z'}}</span> /
+			<span>{{call.call}}</span>
+			<h2><a data-ng-href="#!/calls/{{call._id}}">{{call.name}}</a></h2>
+			<div>{{call.city}}, {{call.state}}</div>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!calls || calls.length">No calls yet. <br> Why don't you <a href="/#!/calls/create">Create One</a>?</h1>
+</section>

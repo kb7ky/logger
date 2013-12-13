@@ -22,10 +22,17 @@ describe('<Unit Test>', function() {
                 password: 'password'
             });
 
-            user.save(function(err) {                
+            user.save(function(err) {
                 call = new Call({
-                    title: 'Call Title',
-                    content: 'Call Content',
+                    call: 'Call',
+                    name: 'Name',
+                    city: 'City',
+                    state: 'State',
+                    country: 'Country',
+                    rig: 'Rig',
+                    antenna: 'Antenna',
+                    groups: 'Groups',
+                    notes: 'Notes',
                     user: user
                 });
 
@@ -34,15 +41,15 @@ describe('<Unit Test>', function() {
         });
 
         describe('Method Save', function() {
-            it('should be able to save whithout problems', function(done) {
+            it('should be able to save without problems', function(done) {
                 return call.save(function(err) {
                     should.not.exist(err);
                     done();
                 });
             });
 
-            it('should be able to show an error when try to save witout title', function(done) {
-                call.title = '';
+            it('should be able to show an error when trying to save without a valid call', function(done) {
+                call.call = '';
 
                 return call.save(function(err) {
                     should.exist(err);

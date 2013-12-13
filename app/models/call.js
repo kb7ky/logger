@@ -44,7 +44,7 @@ var CallSchema = new Schema({
         default: '',
         trim: true
     },
-    ant: {
+    antenna: {
         type: String,
         default: '',
         trim: true
@@ -70,7 +70,7 @@ var CallSchema = new Schema({
  */
 CallSchema.path('call').validate(function(call) {
     return call.length;
-}, 'Title cannot be blank');
+}, 'Call cannot be blank');
 
 /**
  * Statics

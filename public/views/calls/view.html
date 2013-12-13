@@ -1,0 +1,6 @@
+<section data-ng-controller="CallsController" data-ng-init="findOne()">
+	<span>{{call.created | date:'MM/dd/yyyy H:mm Z+0000'}}</span> /
+	<span>{{call.user.name}}</span>
+	<h2>{{call.call}} <a data-ng-show="global.user._id == call.user._id" href="/#!/calls/{{call._id}}/edit">edit</a></h2>
+	<div>{{call.name}}</div>
+</section>

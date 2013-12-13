@@ -1,0 +1,63 @@
+<section data-ng-controller="CallsController">
+	<form class="form-horizontal" data-ng-submit="create()">
+		<div class="control-group">
+			<label class="control-label" for="call">Call</label>
+			<div class="controls">
+				<input type="text" data-ng-model="call" id="call" placeholder="Call" required>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">Name</label>
+			<div class="controls">
+				<input data-ng-model="name" id="name" placeholder="Name"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="city">City</label>
+			<div class="controls">
+				<input data-ng-model="city" id="city" placeholder="City"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="state">State</label>
+			<div class="controls">
+				<input data-ng-model="state" id="state" placeholder="State"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="country">Country</label>
+			<div class="controls">
+				<input data-ng-model="country" id="country" placeholder="Country"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="rig">Rig</label>
+			<div class="controls">
+				<input data-ng-model="rig" id="rig" placeholder="Rig"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="antenna">Antenna</label>
+			<div class="controls">
+				<input data-ng-model="antenna" id="antenna" placeholder="Antenna"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="groups">Groups</label>
+			<div class="controls">
+				<input data-ng-model="groups" id="groups" placeholder="Groups"></input>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="notes">Notes</label>
+			<div class="controls">
+				<textarea data-ng-model="notes" id="notes" rows="10" cols="30" placeholder="Notes"></textarea>
+			</div>
+		</div>
+		<div class="control-group">
+		<div class="controls">
+				<input type="submit" class="btn">
+			</div>
+		</div>
+	</form>
+</section>

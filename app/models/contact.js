@@ -39,14 +39,12 @@ var ContactSchema = new Schema({
         trim: true
     },
     utcTimeStart: {
-        type: String,
-        default: '',
-        trim: true
+        type: Date,
+        default: Date.now
     },
     utcTimeEnd: {
-        type: String,
-        default: '',
-        trim: true
+        type: Date,
+        default: Date.now
     },
     sentRST: {
         type: String,
@@ -85,6 +83,10 @@ var ContactSchema = new Schema({
 ContactSchema.path('call').validate(function(call) {
     return call.length;
 }, 'Call cannot be blank');
+
+ContactSchema.path('utcTimeStart').validate(function(start) {
+    return ( (typeof start != 'undefined') && (start !== null) );
+}, 'utcTimeStart cannot be blank');
 
 /**
  * Statics
