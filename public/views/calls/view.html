@@ -1,6 +1,26 @@
 <section data-ng-controller="CallsController" data-ng-init="findOne()">
-	<span>{{call.created | date:'MM/dd/yyyy H:mm Z+0000'}}</span> /
-	<span>{{call.user.name}}</span>
-	<h2>{{call.call}} <a data-ng-show="global.user._id == call.user._id" href="/#!/calls/{{call._id}}/edit">edit</a></h2>
-	<div>{{call.name}}</div>
+	<h2><a data-ng-show="global.user._id == call.user._id" href="/#!/calls/{{call._id}}/edit">{{call.call}}</a></h2>
+
+  <dl class="dl-horizontal">
+    <dt>Name:</dt>
+	  <dd>{{call.name}}</dd>
+
+    <dt>QTH:</dt>
+    <dd><span>{{call.city}}</span>, <span>{{call.state}}</span> - <span>{{call.country}}</span></dd>
+
+    <dt>Station:</dt>
+    <dd><span>{{call.rig}}</span> - <span>{{call.antenna}}</span></dd>
+
+    <dt>Groups:</dt>
+    <dd><span>{{call.groups}}</span></dd>
+
+    <dt>Notes:</dt>
+    <dd><span>{{call.notes}}</span></dd>
+  </dl>
+
+   <span>{{call.created}}</span> /
+  <span>{{call.utcYear}}</span> /
+  <span>{{call.user._id}}</span> /
+  <span>{{global.user._id}}</span> /
+  <span>{{call.user.name}}</span> /
 </section>

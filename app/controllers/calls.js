@@ -22,7 +22,7 @@ exports.call = function(req, res, next, id) {
 /**
  * Create a call
  */
-exports.create = function(req, res) {            
+exports.create = function(req, res) {
     var call = new Call(req.body);
     call.user = req.user;
 
@@ -32,7 +32,7 @@ exports.create = function(req, res) {
                 errors: err.errors,
                 call: call
             });
-        } 
+        }
         else {
             res.jsonp(call);
         }
@@ -73,6 +73,7 @@ exports.destroy = function(req, res) {
  * Show an call
  */
 exports.show = function(req, res) {
+    console.log(req.call);
     res.jsonp(req.call);
 };
 

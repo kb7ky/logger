@@ -5,6 +5,19 @@ var mongoose = require('mongoose'),
     config = require('../../config/config'),
     Schema = mongoose.Schema;
 
+function to_lower(v) {
+    return v.toLowerCase();
+}
+
+function to_upper(v) {
+    return v.toUpperCase();
+}
+
+function utcTime(t) {
+    console.log('utcTime');
+    var justUTC = t.toISOString().split('.');
+    return '' + justUTC[0];
+}
 
 /**
  * Call Schema
@@ -12,12 +25,15 @@ var mongoose = require('mongoose'),
 var CallSchema = new Schema({
     created: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        get: utcTime
     },
     call: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        set: to_lower,
+        get: to_upper
     },
     name: {
         type: String,
@@ -32,7 +48,8 @@ var CallSchema = new Schema({
     state: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        set: to_upper
     },
     country: {
         type: String,
@@ -77,10 +94,24 @@ CallSchema.path('call').validate(function(call) {
  */
 CallSchema.statics = {
     load: function(id, cb) {
+        console.log('load');
         this.findOne({
             _id: id
         }).populate('user').exec(cb);
     }
 };
+
+/**
+ * behaviors
+ */
+CallSchema.set('toJSON', { getters: true, virtuals: true});
+
+/**
+ * Virtual elements
+ */
+ CallSchema.virtual('utcYear').get(function() {
+    var d = new Date(this.created);
+    return d.getUTCFullYear();
+ });
 
 mongoose.model('Call', CallSchema);
